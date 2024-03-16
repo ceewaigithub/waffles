@@ -30,8 +30,10 @@ class NewsReader:
 
 # Example usage
 if __name__ == "__main__":
-    news_sources = ['bbc-news', 'cnn', 'reuters']
-    api_key = 'YOUR_API_KEY'  # Replace with your actual API key
-    news_reader = NewsReader(api_key, news_sources)
-    articles = news_reader.fetch_latest_news()
-    news_reader.read_news(articles)
+    news_sources = ['bbc-news', 'the-verge']  # User-defined or default news sources
+    news_reader = NewsReader(api_key='your_news_api_key_here', news_sources=news_sources)
+    latest_news = news_reader.fetch_latest_news()
+    if latest_news:
+        news_reader.read_news(latest_news)
+    else:
+        print("No news found.")
