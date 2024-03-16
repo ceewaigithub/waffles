@@ -22,8 +22,8 @@ cd waffles
 ```
 bash compile_run.sh
 ```
-```
 OR
+```
 ./compile_run.bat
 ```
 4. ya thats about it lol
