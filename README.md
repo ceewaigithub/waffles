@@ -12,16 +12,18 @@ To install this project, follow these steps:
 
 1. Clone the repository to your local machine (make sure the bloody link still works):
 
-```git clone https://github.com/ceewaigithub/waffles.git```
+$ git clone https://github.com/ceewaigithub/waffles.git
 
 2. Navigate to the project directory:
 
-cd waffles
+$ cd waffles
 
 3. Run the shell script on LINUX/MAC or the batch file on windows:
-bash compile_run.sh
+$ bash compile_run.sh
+
 OR
-./compile_run.bat
+
+$ ./compile_run.bat
 
 4. ya thats about it lol
 
