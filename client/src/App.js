@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './styles/App.css';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 function App() {
   const sendDataToServer = () => {
