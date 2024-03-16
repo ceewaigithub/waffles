@@ -20,4 +20,11 @@ app.get('*', (req, res) => {
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
+  
 });
+
+// Example of fetching data from the backend in a React component
+fetch('/api/data')
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error('There was an error!', error));
