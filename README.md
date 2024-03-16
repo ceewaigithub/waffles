@@ -15,14 +15,17 @@ To install this project, follow these steps:
 git clone https://github.com/ceewaigithub/waffles.git
 ```
 2. Navigate to the project directory:
-
+```
 cd waffles
-
+```
 3. Run the shell script on LINUX/MAC or the batch file on windows:
+```
 bash compile_run.sh
+```
+```
 OR
 ./compile_run.bat
-
+```
 4. ya thats about it lol
 
 Ensure you have Python installed on your machine as the project uses Python scripts for traffic monitoring, music selection, and news reading functionalities.
