@@ -4,6 +4,12 @@
 
 This project is designed to enhance the driving experience by integrating traffic monitoring, music playback based on traffic conditions, and news reading functionalities into one platform. It's ideal for commuters looking to stay informed and entertained during their drives. The Traffic LLM DJ Platform uses React for the frontend, Node.js for the backend, and Python for handling the core functionalities including traffic data interpretation, music selection, and news reading. This project was built to showcase how different technologies can work together seamlessly to provide a valuable service.
 
+## PORTS
+React: Port 80
+Nodejs: Port 8000
+
+(make sure to have these two avail thx)
+
 ## Installation
 
 BEFORE CONTINUING MAKE SURE U CAN NODEJS AND REACT THANKS
@@ -28,7 +34,14 @@ OR
 ```
 4. UPDATE config.py and settings.py under server/config/*, when I mean update I mean put your API keys.
 
-5. ya thats about it lol
+5. (if you want) Running containers, make sure u have docker installed and open up the daemon in the background. run the following command:
+(keep in mind that in the future, we will have to add a build script to the backend's package.json if we need to build something like TypeScript)
+
+```
+docker-compose up --build
+```
+
+6. ya thats about it lol
 
 Ensure you have Python installed on your machine as the project uses Python scripts for traffic monitoring, music selection, and news reading functionalities.
 Your default web browser should open automatically to `http://localhost:3000` where you can interact with the application.

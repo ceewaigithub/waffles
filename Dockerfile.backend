@@ -1,0 +1,20 @@
+# Use the official Node.js 18 image as a parent image
+FROM node:18
+
+# Set the working directory in the container to the server directory
+WORKDIR /usr/src/app/server
+
+# Copy package.json and package-lock.json from the server directory
+COPY ./server/package*.json ./
+
+# Install any dependencies
+RUN npm install
+
+# Copy the rest of the server directory into the container
+COPY ./server ./
+
+# Your application binds to port 8000, make sure the container does too
+EXPOSE 8000
+
+# Define the command to run your app
+CMD ["node", "App.js"]

@@ -24,6 +24,9 @@
       "react-app/jest"
     ]
   },
+  "optionalDependencies": {
+    "fsevents": "*"
+  },
   "browserslist": {
     "production": [
       ">0.2%",
