@@ -2,11 +2,13 @@
 
 ## Description
 
-This project is designed to enhance the driving experience by integrating traffic monitoring, music playback based on traffic conditions, and news reading functionalities into one platform. It's ideal for commuters looking to stay informed and entertained during their drives. The Traffic LLM DJ Platform uses React for the frontend, Node.js for the backend, and Python for handling the core functionalities including traffic data interpretation, music selection, and news reading. This project was built to showcase how different technologies can work together seamlessly to provide a valuable service.
+This project is designed to enhance the driving experience by integrating traffic monitoring, music playback based on traffic conditions, and news reading functionalities into one platform. It's ideal for commuters looking to stay informed and entertained during their drives. waffles uses React for the frontend, Node.js for the backend, and Python for handling the core functionalities including traffic data interpretation, music selection, and news reading.
 
 ## PORTS
-React: Port 3000
-Nodejs: Port 8000
+
+`React (Frontend): Port 3000`
+
+`Nodejs (Backend): Port 8000`
 
 (make sure to have these two avail thx)
 
