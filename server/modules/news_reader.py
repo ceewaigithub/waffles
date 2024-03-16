@@ -28,6 +28,19 @@ class NewsReader:
             tts.save("news.mp3")
             os.system("mpg321 news.mp3")  # Play the audio. mpg321 is a command-line mp3 player
 
+    def fetch_and_generate_news_audio(news_items, output_dir="audio_files"):
+        if not os.path.exists(output_dir):
+            os.makedirs(output_dir)
+        
+        audio_file_paths = []
+        for idx, news in enumerate(news_items[:5]):  # Limit to 5 news items
+            tts = gTTS(text=news['title'], lang='en')
+            audio_file_path = os.path.join(output_dir, f"news_{idx}.mp3")
+            tts.save(audio_file_path)
+            audio_file_paths.append(audio_file_path)
+        
+        return audio_file_paths
+
 # Example usage
 if __name__ == "__main__":
     news_sources = ['bbc-news', 'the-verge']  # User-defined or default news sources

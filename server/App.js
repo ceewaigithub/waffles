@@ -3,7 +3,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import cors from 'cors';
-import fetch from 'node-fetch';
+import spawn from 'child_process';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -31,6 +31,21 @@ app.post('/api/data', (req, res) => {
 
     // Send a response back to the client
     res.json({ message: 'Good morning. Data received successfully', yourData: clientData });
+});
+
+app.get('/api/news-audio', (req, res) => {
+    const pythonProcess = spawn('python', ['modules/news_reader.py', 'args']);
+    
+    pythonProcess.stdout.on('data', (data) => {
+        // Assuming the Python script returns a JSON array of file paths
+        const audioFiles = JSON.parse(data);
+        res.json({ success: true, audioFiles });
+    });
+
+    pythonProcess.stderr.on('data', (data) => {
+        console.error(`stderr: ${data}`);
+        res.status(500).json({ success: false, message: 'Error generating news audio' });
+    });
 });
 
 app.listen(PORT, () => {

@@ -1,8 +1,8 @@
-# settings.py
+# RENAME CURRENT FILE TO settings.py
 
 # Database settings
 DATABASE_HOST = 'localhost'
-DATABASE_PORT = 8000
+DATABASE_PORT = 5001
 DATABASE_NAME = 'wafflesDB'
 DATABASE_USER = 'your_username'
 DATABASE_PASSWORD = 'your_password'
