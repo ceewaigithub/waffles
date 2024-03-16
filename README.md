@@ -4,6 +4,16 @@
 
 This project is designed to enhance the driving experience by integrating traffic monitoring, music playback based on traffic conditions, and news reading functionalities into one platform. It's ideal for commuters looking to stay informed and entertained during their drives. The Traffic LLM DJ Platform uses React for the frontend, Node.js for the backend, and Python for handling the core functionalities including traffic data interpretation, music selection, and news reading. This project was built to showcase how different technologies can work together seamlessly to provide a valuable service.
 
+### Platform architecture
+waffles' platform architecture is as follows:
+
+- Frontend: The frontend of the platform is built using React. React is a JavaScript library for building user interfaces. It allows for the creation of reusable UI components and provides a declarative approach to building UIs.
+
+- Backend: The backend of the platform is built using Node.js. Node.js is a JavaScript runtime that allows for server-side execution of JavaScript code. It provides a scalable and efficient platform for building server-side applications.
+
+- Core Functionalities: The core functionalities of the platform, including traffic data interpretation, music selection, and news reading, are handled using Python modules. Python is a versatile programming language that offers a wide range of libraries and modules for various tasks. In this project, Python is used to process traffic data, select music based on traffic conditions, and read news articles.
+
+
 ## Installation
 
 BEFORE CONTINUING MAKE SURE U CAN NODEJS AND REACT THANKS
