@@ -1,7 +1,5 @@
 from config.settings import TRAFFIC_API_KEY, MUSIC_API_KEY, NEWS_API_KEY, USER_PREFERENCES
-from modules.traffic import TrafficMonitor
-from modules.music_library import MusicPlayer
-from modules.text_to_speech import NewsReader
+from modules.traffic import TrafficMonitor, MusicPlayer, NewsReader
 
 def main():
     # Initialize modules with API keys and user preferences
