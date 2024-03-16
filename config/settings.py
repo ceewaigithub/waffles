@@ -7,9 +7,11 @@ DATABASE_NAME = 'wafflesDB'
 DATABASE_USER = 'your_username'
 DATABASE_PASSWORD = 'your_password'
 
-# API settings
-API_KEY = 'your_api_key'
-API_BASE_URL = 'https://api.example.com'
+# API keys
+TRAFFIC_API_KEY = 'your_traffic_api_key_here'
+MUSIC_API_KEY = 'your_music_api_key_here'
+NEWS_API_KEY = 'your_news_api_key_here'
+
 
 # Logging settings
 LOG_FILE = '/var/log/traffic_llm.log'
