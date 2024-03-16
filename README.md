@@ -33,14 +33,15 @@ Your default web browser should open automatically to `http://localhost:3000` wh
 
 ## Contributing
 
-This is how u contribute:
+This is how u contribute if you're part of the group:
+1. just push to main branch and make sure we dont touch the same files.
 
+BUT FOLLOW THESE IF YOURE NOT PART OF THE 5:
 1. Fork the repository.
 2. Create a new branch: `git checkout -b your-branch-name`.
 3. Make your changes and commit them: `git commit -am 'Add some feature'`.
 4. Push to the branch: `git push origin your-branch-name`.
 5. Create a new pull request.
-
 Please ensure your code adheres to the project's coding standards and includes appropriate tests. Contributions without tests are unlikely to be accepted.
 
 ## License
