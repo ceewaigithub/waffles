@@ -25,7 +25,7 @@ for ((i=5; i>=1; i--)); do
     sleep 1
 done
 
-echo "LET GOOOO"
+echo "LET HIM COOK"
 # Starting the React frontend
 echo "Starting the React frontend..."
 cd ../client # Adjust this path to where your React app code is located

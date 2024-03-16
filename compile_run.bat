@@ -24,7 +24,7 @@ for /l %%i in (5,-1,1) do (
     timeout /t 1 > nul
 )
 
-echo LET GOOOO
+echo LET HIM COOK
 REM Starting the React frontend
 echo Starting the React frontend...
 cd ../client
