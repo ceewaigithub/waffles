@@ -6,7 +6,7 @@ This project is designed to enhance the driving experience by integrating traffi
 
 ## Installation
 
-BEFORE CONTINUING MAKE SURE U HAVE NPM INSTALLED THANKS.
+BEFORE CONTINUING MAKE SURE U CAN NODEJS AND REACT THANKS
 
 To install this project, follow these steps:
 
