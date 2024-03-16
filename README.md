@@ -94,8 +94,6 @@ We have the following plans for future development:
 - Enhanced traffic data interpretation and analysis.
 - Personalized news reading based on user preferences.
 
-Stay tuned for these exciting features in future releases!
-
 ## Changelog
 
 - Version 0.0.1 (2024-16-03): Initial creation of React, Nodejs and python modules and components.
