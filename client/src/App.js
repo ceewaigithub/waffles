@@ -1,7 +1,31 @@
 import logo from './logo.svg';
 import './styles/App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 function App() {
+  const sendDataToServer = () => {
+    // Code to send data to the server
+    // You can use fetch or axios to make an HTTP request to your Node.js server
+    // Example using fetch:
+    fetch('/api/data', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ data: 'Hello from the client!' }),
+    })
+      .then(response => response.json())
+      .then(data => {
+        // Handle the response from the server
+        console.log(data);
+      })
+      .catch(error => {
+        // Handle any errors
+        console.error(error);
+      });
+  };
+
   return (
     <div className="App">
       <header className="App-header">
@@ -17,6 +41,7 @@ function App() {
         >
           Learn React
         </a>
+        <button onClick={sendDataToServer}>Send Data to Server</button>
       </header>
     </div>
   );
