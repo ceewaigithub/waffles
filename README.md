@@ -11,9 +11,11 @@ BEFORE CONTINUING MAKE SURE U CAN NODEJS AND REACT THANKS
 To install this project, follow these steps:
 
 1. Clone the repository to your local machine (make sure the bloody link still works):
-git clone https://github.com/ceewaigithub/waffles.git
+
+```git clone https://github.com/ceewaigithub/waffles.git```
 
 2. Navigate to the project directory:
+
 cd waffles
 
 3. Run the shell script on LINUX/MAC or the batch file on windows:
