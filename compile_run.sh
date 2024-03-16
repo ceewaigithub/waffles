@@ -18,8 +18,14 @@ npm run start &
 BACKEND_PID=$!
 
 # Delay to ensure the backend server starts before attempting to launch the frontend
-sleep 5
+# sleep 5
+# Countdown from 5
+for ((i=5; i>=1; i--)); do
+    echo "in: $i"
+    sleep 1
+done
 
+echo "LET GOOOO"
 # Starting the React frontend
 echo "Starting the React frontend..."
 cd ../client # Adjust this path to where your React app code is located

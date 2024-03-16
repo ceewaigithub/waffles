@@ -24,7 +24,7 @@ app.listen(PORT, () => {
 });
 
 // Example of fetching data from the backend in a React component
-fetch('/api/data')
-  .then(response => response.json())
-  .then(data => console.log(data))
-  .catch(error => console.error('There was an error!', error));
+// fetch('/api/data')
+//   .then(response => response.json())
+//   .then(data => console.log(data))
+//   .catch(error => console.error('There was an error!', error));
