@@ -43,7 +43,13 @@ OR
 docker-compose up --build
 ```
 
-6. ya thats about it lol
+6. install python packages
+
+```
+pip3 install -r requirements.txt
+```
+
+7. ya thats about it lol
 
 Ensure you have Python installed on your machine as the project uses Python scripts for traffic monitoring, music selection, and news reading functionalities.
 Your default web browser should open automatically to `http://localhost:3000` where you can interact with the application.

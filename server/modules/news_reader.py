@@ -1,40 +1,44 @@
 import requests
 from gtts import gTTS
 import os
+import sys
+import json
+from newsapi import NewsApiClient
+
+# Add the parent directory to the sys.path
+parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+sys.path.append(parent_dir)
+
+from config.settings import NEWS_API_KEY
+
 
 class NewsReader:
     def __init__(self, api_key, news_sources):
-        self.api_key = api_key
-        self.news_sources = ','.join(news_sources)
-        self.base_url = "https://newsapi.org/v2/top-headlines"
+        self.news_api_client = NewsApiClient(api_key=api_key)
+        self.news_sources = news_sources
 
-    def fetch_latest_news(self):
+    def fetch_latest_news(self, num_articles=3):
         """Fetch the latest news articles from the specified sources."""
-        params = {
-            'apiKey': self.api_key,
-            'sources': self.news_sources,
-        }
-        response = requests.get(self.base_url, params=params)
-        if response.status_code == 200:
-            articles = response.json()['articles']
-            return articles[:5]  # Return the top 5 articles
+        response = self.news_api_client.get_top_headlines(
+            sources=','.join(self.news_sources),
+            language='en',
+            page_size=num_articles
+        )
+        if response['status'] == 'ok':
+            return response['articles']
         else:
+            print("Failed to fetch latest news")
             return []
 
-    def read_news(self, articles):
-        """Use a TTS engine to read the titles and descriptions of news articles."""
-        for article in articles:
-            tts = gTTS(text=f"Title: {article['title']}. Description: {article['description']}", lang='en')
-            tts.save("news.mp3")
-            os.system("mpg321 news.mp3")  # Play the audio. mpg321 is a command-line mp3 player
-
-    def fetch_and_generate_news_audio(news_items, output_dir="audio_files"):
+    def generate_news_audio(self, articles, output_dir="audio_files"):
+        """Generate audio files for each news article."""
         if not os.path.exists(output_dir):
             os.makedirs(output_dir)
         
         audio_file_paths = []
-        for idx, news in enumerate(news_items[:5]):  # Limit to 5 news items
-            tts = gTTS(text=news['title'], lang='en')
+        for idx, article in enumerate(articles):
+            text = f"Title: {article['title']}. Description: {article.get('description', 'No description available.')}"
+            tts = gTTS(text=text, lang='en')
             audio_file_path = os.path.join(output_dir, f"news_{idx}.mp3")
             tts.save(audio_file_path)
             audio_file_paths.append(audio_file_path)
@@ -43,10 +47,12 @@ class NewsReader:
 
 # Example usage
 if __name__ == "__main__":
-    news_sources = ['bbc-news', 'the-verge']  # User-defined or default news sources
-    news_reader = NewsReader(api_key='your_news_api_key_here', news_sources=news_sources)
-    latest_news = news_reader.fetch_latest_news()
+    news_sources = ['9to5mac' , 'bbc-news', 'the-verge']
+    news_reader = NewsReader(api_key=NEWS_API_KEY, news_sources=news_sources)
+    latest_news = news_reader.fetch_latest_news(num_articles=3)
+    
     if latest_news:
-        news_reader.read_news(latest_news)
+        audio_file_paths = news_reader.generate_news_audio(latest_news)
+        print(json.dumps(audio_file_paths))  # Print JSON array of file paths
     else:
         print("No news found.")

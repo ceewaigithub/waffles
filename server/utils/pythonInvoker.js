@@ -2,7 +2,7 @@ import { spawn } from 'child_process';
 
 const runPythonScript = (scriptPath, args = []) => {
     return new Promise((resolve, reject) => {
-        const pythonProcess = spawn('python', [scriptPath, ...args]);
+        const pythonProcess = spawn('python3', [scriptPath, ...args]);
 
         pythonProcess.stdout.on('data', (data) => {
             resolve(data.toString());
@@ -14,4 +14,4 @@ const runPythonScript = (scriptPath, args = []) => {
     });
 };
 
-export default { runPythonScript };
+export { runPythonScript };

@@ -11,7 +11,7 @@ check_and_install_packages() {
 }
 
 # Starting the backend server
-echo "Starting the Node.js backend..."
+echo "Starting the Node.js backend server..."
 cd server # Adjust this path to where your Node.js server code is located
 check_and_install_packages
 npm run start &

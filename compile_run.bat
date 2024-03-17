@@ -10,7 +10,7 @@ if not exist "node_modules" (
 )
 
 REM Starting the backend server
-echo Starting the Node.js backend...
+echo Starting the Node.js backend server...
 cd server
 call :check_and_install_packages
 start npm run start

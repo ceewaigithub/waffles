@@ -1,6 +1,8 @@
 import logo from './logo.svg';
 import './styles/App.css';
 import React, { useState, useEffect } from 'react';
+import NewsComponent from './NewsComponent.js'; // Adjust the import path as needed
+
 
 function App() {
   const sendDataToServer = () => {
@@ -41,6 +43,7 @@ function App() {
           Learn React
         </a>
         <button onClick={sendDataToServer}>Send Data to Server</button>
+        <NewsComponent />
       </header>
     </div>
   );
