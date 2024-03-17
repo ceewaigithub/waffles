@@ -26,15 +26,15 @@ git clone https://github.com/ceewaigithub/waffles.git
 ```
 cd waffles
 ```
-3. Run the shell script on LINUX/MAC or the batch file on windows:
+3. Run the shell script on LINUX/MAC:
 ```
 bash compile_run.sh
 ```
-OR
+OR batch file on windows:
 ```
 ./compile_run.bat
 ```
-4. UPDATE config.py and settings.py under server/config/*, when I mean update I mean put your API keys.
+4. UPDATE config.py and settings.py under server/config/*, when I mean update I mean put your API keys 🔑.
 
 5. (if you want) Running containers, make sure u have docker installed and open up the daemon in the background. run the following command:
 (keep in mind that in the future, we will have to add a build script to the backend's package.json if we need to build something like TypeScript)
@@ -57,7 +57,7 @@ Your default web browser should open automatically to `http://localhost:3000` wh
 ## Contributing
 
 This is how u contribute if you're part of the group:
-1. lol just dc and just push to main just make sure we dont touch the same files can liao.
+1. lol just dc and just push to main just make sure we dont touch the same files can liao 👍.
 
 BUT FOLLOW THESE IF YOURE NOT PART OF THE 5:
 1. Fork the repository.
@@ -106,4 +106,4 @@ We have the following plans for future development:
 
 ## License
 
-LOL WGT license
+LOL WGT license 😎
