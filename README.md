@@ -27,6 +27,7 @@ git clone https://github.com/ceewaigithub/waffles.git
 cd waffles
 ```
 3. UPDATE config.py and settings.py under server/config/*, when I mean update I mean put your API keys 🔑.
+
 News API:
 ```
 https://newsapi.org/docs/client-libraries/python
