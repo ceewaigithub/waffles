@@ -26,7 +26,15 @@ git clone https://github.com/ceewaigithub/waffles.git
 ```
 cd waffles
 ```
-3. Run the shell script on LINUX/MAC:
+3. UPDATE config.py and settings.py under server/config/*, when I mean update I mean put your API keys 🔑.
+
+4. install python packages
+
+```
+pip3 install -r requirements.txt
+```
+
+5. Run the shell script on LINUX/MAC:
 ```
 bash compile_run.sh
 ```
@@ -34,19 +42,11 @@ OR batch file on windows:
 ```
 ./compile_run.bat
 ```
-4. UPDATE config.py and settings.py under server/config/*, when I mean update I mean put your API keys 🔑.
-
-5. (if you want) Running containers, make sure u have docker installed and open up the daemon in the background. run the following command:
+6. (if you want) Running containers, make sure u have docker installed and open up the daemon in the background. run the following command:
 (keep in mind that in the future, we will have to add a build script to the backend's package.json if we need to build something like TypeScript)
 
 ```
 docker-compose up --build
-```
-
-6. install python packages
-
-```
-pip3 install -r requirements.txt
 ```
 
 7. ya thats about it lol
