@@ -57,7 +57,7 @@ Your default web browser should open automatically to `http://localhost:3000` wh
 ## Contributing
 
 This is how u contribute if you're part of the group:
-1. just push to main branch and make sure we dont touch the same files.
+1. lol just dc and just push to main just make sure we dont touch the same files can liao.
 
 BUT FOLLOW THESE IF YOURE NOT PART OF THE 5:
 1. Fork the repository.
