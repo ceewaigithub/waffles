@@ -1,27 +1,27 @@
-import logo from './logo.svg';
-import './styles/App.css';
-import React, { useState, useEffect } from 'react';
-import NewsComponent from './NewsComponent.js'; // Adjust the import path as needed
-
+import logo from "./logo.svg";
+import "./styles/App.css";
+import React, { useState, useEffect } from "react";
+import NewsComponent from "./NewsComponent.js"; // Adjust the import path as needed
+import DJPlayer from "./DJPlayer.js";
 
 function App() {
   const sendDataToServer = () => {
     // Code to send data to the server
     // You can use fetch or axios to make an HTTP request to your Node.js server
     // Example using fetch:
-    fetch('/api/data', {
-      method: 'POST',
+    fetch("/api/data", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({ data: 'Hello from the client!' }),
+      body: JSON.stringify({ data: "Hello from the client!" }),
     })
-      .then(response => response.json())
-      .then(data => {
+      .then((response) => response.json())
+      .then((data) => {
         // Handle the response from the server
         console.log(data);
       })
-      .catch(error => {
+      .catch((error) => {
         // Handle any errors
         console.error(error);
       });
@@ -30,20 +30,9 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload lol.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <DJPlayer />
         <button onClick={sendDataToServer}>Send Data to Server</button>
-        <NewsComponent />
+        {/* <NewsComponent /> */}
       </header>
     </div>
   );

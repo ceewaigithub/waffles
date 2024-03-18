@@ -1,0 +1,88 @@
+:root {
+  --background-color: #181f2a;
+  --border-color: #bbdefb;
+  --low-circle-color: rgba(100, 58, 183, 0.55);
+  --medium-circle-color: rgba(93, 58, 183, 0.55);
+  --high-circle-color: rgba(78, 58, 183, 0.55);
+}
+
+body {
+  background: var(--background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.plane-block {
+  height: 100%;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+#plate {
+  width: 75%;
+  height: 75%;
+  background: url("https://images.news18.com/ibnlive/uploads/2022/06/indian-tutorials.png");
+  background-size: cover;
+  background-position: center;
+  border: 5px solid var(--border-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: spinPlate 30s linear infinite;
+  animation-play-state: paused;
+}
+
+#plate::before {
+  content: "";
+  width: 7%;
+  height: 7%;
+  position: absolute;
+  background: var(--background-color);
+  border-radius: 50%;
+  border: 2px solid var(--border-color);
+}
+
+.circle {
+  position: absolute;
+  min-height: 50%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  z-index: -1;
+  transition: border-radius 0.3s;
+  border: 2px solid var(--border-color);
+}
+
+.circle:nth-child(1) {
+  height: 70%;
+  background-color: var(--low-circle-color);
+}
+
+.circle:nth-child(2) {
+  height: 75%;
+  background-color: var(--medium-circle-color);
+}
+
+.circle:nth-child(3) {
+  height: 82%;
+  background-color: var(--high-circle-color);
+}
+
+#plate:hover {
+  cursor: pointer;
+}
+
+@keyframes spinPlate {
+  to {
+    transform: rotate(360deg);
+  }
+}
