@@ -3,14 +3,13 @@ from gtts import gTTS
 import os
 import sys
 import json
-from newsapi import NewsApiClient
+from newsapi.newsapi_client import NewsApiClient
 
 # Add the parent directory to the sys.path
 parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 sys.path.append(parent_dir)
 
 from config.settings import NEWS_API_KEY
-
 
 class NewsReader:
     def __init__(self, api_key, news_sources):

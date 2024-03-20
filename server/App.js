@@ -53,6 +53,11 @@ app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'));
 });
 
+// Catch 404 and forward to error handler
+app.use((req, res, next) => {
+    res.status(404).send('404 Page Not Found');
+});
+
 app.listen(8000, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });

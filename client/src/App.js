@@ -32,7 +32,7 @@ function App() {
       <header className="App-header">
         <DJPlayer />
         <button onClick={sendDataToServer}>Send Data to Server</button>
-        {/* <NewsComponent /> */}
+        <NewsComponent />
       </header>
     </div>
   );
