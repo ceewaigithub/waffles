@@ -3,12 +3,18 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import cors from 'cors';
-import spawn from 'child_process';
 import { getNewsData } from './controllers/newsReaderController.js';
+import { createServer } from 'http';
+import { Server } from 'socket.io';
+import { queue, queueEmitter } from './controllers/queueController.js';
+
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const PORT = process.env.PORT || 8000;
 const app = express();
+const server = createServer(app);
+const io = new Server(server);
 app.use(express.json());
 app.use(cors());
 
@@ -58,6 +64,38 @@ app.use((req, res, next) => {
     res.status(404).send('404 Page Not Found');
 });
 
-app.listen(8000, () => {
+io.on('connection', (socket) => {
+
+    console.log('Client Connected');
+
+    // Stream the next track in the queue
+    const streamTrack = (track) => {
+        console.log('Streaming track:', track);
+        socket.emit('stream', `/audio_files/${path.basename(track)}`);
+    };
+
+    // Listen for a request to play the next track
+    socket.on('play', () => {
+        if (queue.length > 0) {
+            const nextTrack = queue.shift();
+            streamTrack(nextTrack);
+        } else {
+
+            console.log('Queue is empty. Waiting for updates');
+
+            // Listen for the queue update event
+            queueEmitter.once('update', () => {
+                const nextTrack = queue.shift();
+                streamTrack(nextTrack);
+            });
+        }
+    });
+
+    socket.on('disconnect', () => {
+        console.log('Client disconnected');
+    });
+});
+
+server.listen(8000, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
