@@ -11,6 +11,7 @@ DATABASE_PASSWORD = 'your_password'
 TRAFFIC_API_KEY = 'your_traffic_api_key_here'
 MUSIC_API_KEY = 'your_music_api_key_here'
 NEWS_API_KEY = 'your_news_api_key_here'
+WEATHER_API_KEY = 'your_weather_api_key_here'
 
 
 # Logging settings

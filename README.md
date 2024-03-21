@@ -43,6 +43,11 @@ Traffic API:
 https://wehaveyettofindonedammit.com
 ```
 
+Weather API:
+```
+https://www.tomorrow.io/
+```
+
 4. install python packages
 
 ```
