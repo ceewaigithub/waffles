@@ -104,14 +104,14 @@ const DJPlayer = () => {
         crossOrigin="anonymous"
         type="audio/mp3"
         loop="loop"
-        id="audio"
+        id="djPlayer-audio"
       ></audio>
 
-      <div className="plane-block">
-        <div className="circle" ref={circleLowRef} id="lowCircle"></div>
-        <div className="circle" ref={circleMediumRef} id="mediumCircle"></div>
-        <div className="circle" ref={circleHighRef} id="highCircle"></div>
-        <div ref={plateRef} id="plate"></div>
+      <div className="djPlayer-plane-block">
+        <div className="djPlayer-circle" ref={circleLowRef} id="djPlayer-lowCircle"></div>
+        <div className="djPlayer-circle" ref={circleMediumRef} id="djPlayer-mediumCircle"></div>
+        <div className="djPlayer-circle" ref={circleHighRef} id="djPlayer-highCircle"></div>
+        <div ref={plateRef} id="djPlayer-plate"></div>
       </div>
     </>
   );

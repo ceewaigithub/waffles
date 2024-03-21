@@ -1,13 +1,13 @@
 :root {
-  --background-color: #181f2a;
-  --border-color: #bbdefb;
-  --low-circle-color: rgba(100, 58, 183, 0.55);
-  --medium-circle-color: rgba(93, 58, 183, 0.55);
-  --high-circle-color: rgba(78, 58, 183, 0.55);
+  --djPlayer-background-color: #181f2a;
+  --djPlayer-border-color: #bbdefb;
+  --djPlayer-low-circle-color: rgba(100, 58, 183, 0.55);
+  --djPlayer-medium-circle-color: rgba(93, 58, 183, 0.55);
+  --djPlayer-high-circle-color: rgba(78, 58, 183, 0.55);
 }
 
 body {
-  background: var(--background-color);
+  background: var(--djPlayer-background-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,7 +18,7 @@ body {
   box-sizing: border-box;
 }
 
-.plane-block {
+.djPlayer-plane-block {
   height: 100%;
   aspect-ratio: 1;
   display: flex;
@@ -27,61 +27,85 @@ body {
   position: relative;
 }
 
-#plate {
+#djPlayer-plate {
   width: 75%;
   height: 75%;
   background: url("https://images.news18.com/ibnlive/uploads/2022/06/indian-tutorials.png");
   background-size: cover;
   background-position: center;
-  border: 5px solid var(--border-color);
+  border: 5px solid var(--djPlayer-border-color);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+<<<<<<< Updated upstream
   animation: spinPlate 30s linear infinite;
+=======
+  animation: djPlayer-spin 30s linear infinite;
+>>>>>>> Stashed changes
   animation-play-state: paused;
 }
 
-#plate::before {
+#djPlayer-plate::before {
   content: "";
   width: 7%;
   height: 7%;
   position: absolute;
-  background: var(--background-color);
+  background: var(--djPlayer-background-color);
   border-radius: 50%;
-  border: 2px solid var(--border-color);
+  border: 2px solid var(--djPlayer-border-color);
 }
 
-.circle {
+.djPlayer-circle {
   position: absolute;
   min-height: 50%;
   aspect-ratio: 1;
   border-radius: 50%;
   z-index: -1;
+<<<<<<< Updated upstream
   transition: border-radius 0.3s;
   border: 2px solid var(--border-color);
 }
 
 .circle:nth-child(1) {
+=======
+  transition: border-radius 0.3s, height 0.3s, background-color 0.3s;
+  border: 2px solid var(--djPlayer-border-color);
+}
+
+#djPlayer-lowCircle {
+>>>>>>> Stashed changes
   height: 70%;
-  background-color: var(--low-circle-color);
+  background-color: var(--djPlayer-low-circle-color);
 }
 
+<<<<<<< Updated upstream
 .circle:nth-child(2) {
+=======
+#djPlayer-mediumCircle {
+>>>>>>> Stashed changes
   height: 75%;
-  background-color: var(--medium-circle-color);
+  background-color: var(--djPlayer-medium-circle-color);
 }
 
+<<<<<<< Updated upstream
 .circle:nth-child(3) {
+=======
+#djPlayer-highCircle {
+>>>>>>> Stashed changes
   height: 82%;
-  background-color: var(--high-circle-color);
+  background-color: var(--djPlayer-high-circle-color);
 }
 
+<<<<<<< Updated upstream
 #plate:hover {
   cursor: pointer;
 }
 
 @keyframes spinPlate {
+=======
+@keyframes djPlayer-spin {
+>>>>>>> Stashed changes
   to {
     transform: rotate(360deg);
   }
