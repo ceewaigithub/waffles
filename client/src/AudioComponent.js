@@ -1,10 +1,12 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useContext } from 'react';
 import io from 'socket.io-client';
+import CustomAudioContext from './CustomAudioContext';
 
 function AudioPlayer() {
     const audioRef = useRef();
     const [isConnected, setIsConnected] = useState(false);
     const [socket, setSocket] = useState(null);
+    const { setIsPlaying } = useContext(CustomAudioContext);
 
     const handlePlay = () => {
 
@@ -44,7 +46,7 @@ function AudioPlayer() {
     useEffect(() => {
         if (audioRef.current) {
             // Listen for the 'ended' event from the audio element
-            const handleEnded = () => {
+            const handleAudioEnded = () => {
                 if (isConnected) {
                     // Request the server to play the next track
                     console.log('Requesting next track from server')
@@ -52,18 +54,24 @@ function AudioPlayer() {
                 }
             };
 
-            audioRef.current.addEventListener('ended', handleEnded);
+            audioRef.current.addEventListener('ended', () => {
+                handleAudioEnded();
+                setIsPlaying(false);
+            });
 
+            audioRef.current.addEventListener('play', () => setIsPlaying(true));
+            
             return () => {
-                audioRef.current.removeEventListener('ended', handleEnded);
+                audioRef.current.removeEventListener('ended', handleAudioEnded);
+                audioRef.current.removeEventListener('play', () => setIsPlaying(true));
             };
         }
-    }, [isConnected, socket]);
+    }, [isConnected, setIsPlaying, socket]);
 
 
     return (
         <div>
-            <audio ref={audioRef} />;
+            <audio ref={audioRef}/>;
             <button onClick={handlePlay} disabled={!isConnected}>Play from Server</button>
         </div>
     );
