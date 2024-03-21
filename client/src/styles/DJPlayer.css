@@ -12,6 +12,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  margin: 0;
 }
 
 * {
@@ -38,8 +39,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: spinPlate 30s linear infinite;
+  animation: spin 30s linear infinite;
   animation-play-state: paused;
+  cursor: pointer;
 }
 
 #plate::before {
@@ -58,30 +60,26 @@ body {
   aspect-ratio: 1;
   border-radius: 50%;
   z-index: -1;
-  transition: border-radius 0.3s;
+  transition: border-radius 0.3s, height 0.3s, background-color 0.3s;
   border: 2px solid var(--border-color);
 }
 
-.circle:nth-child(1) {
+#lowCircle {
   height: 70%;
   background-color: var(--low-circle-color);
 }
 
-.circle:nth-child(2) {
+#mediumCircle {
   height: 75%;
   background-color: var(--medium-circle-color);
 }
 
-.circle:nth-child(3) {
+#highCircle {
   height: 82%;
   background-color: var(--high-circle-color);
 }
 
-#plate:hover {
-  cursor: pointer;
-}
-
-@keyframes spinPlate {
+@keyframes spin {
   to {
     transform: rotate(360deg);
   }
