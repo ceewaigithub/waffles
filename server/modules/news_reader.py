@@ -30,7 +30,7 @@ class NewsReader:
             print("Failed to fetch latest news")
             return []
 
-    def generate_news_audio(self, articles, output_dir="audio_files"):
+    def generate_news_audio(self, articles, output_dir="../audio_files"):
         """Generate audio files for each news article."""
         if not os.path.exists(output_dir):
             os.makedirs(output_dir)
@@ -50,7 +50,7 @@ if __name__ == "__main__":
     news_sources = ['9to5mac' , 'bbc-news', 'the-verge']
     news_reader = NewsReader(api_key=NEWS_API_KEY, news_sources=news_sources)
     # Check if audio_files/ already has 3 news
-    existing_files = glob.glob("audio_files/news_*.mp3")
+    existing_files = glob.glob("../audio_files/news_*.mp3")
     if len(existing_files) < 3:
         latest_news = news_reader.fetch_latest_news(num_articles=3 - len(existing_files))
         audio_file_paths = news_reader.generate_news_audio(latest_news)
