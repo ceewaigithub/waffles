@@ -7,6 +7,7 @@ import { getNewsData } from './controllers/newsReaderController.js';
 import { createServer } from 'http';
 import { Server } from 'socket.io';
 import { queue, queueEmitter } from './controllers/queueController.js';
+import { getWeather } from './controllers/weatherController.js';
 
 
 const __filename = fileURLToPath(import.meta.url);
@@ -52,6 +53,7 @@ app.post('/api/data', (req, res) => {
 // });
 
 app.get('/api/news', getNewsData);
+app.get('/api/weather', getWeather);
 
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.

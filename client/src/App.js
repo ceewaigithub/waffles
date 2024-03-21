@@ -36,10 +36,50 @@ function App() {
             });
     };
 
+    const requestRealtimeWeather = () => {
+
+        fetch("/api/weather?location=singapore&action=realtime", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            }
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                // Handle the response from the server
+                console.log(data);
+            })
+            .catch((error) => {
+                // Handle any errors
+                console.error(error);
+            });
+    };
+
+    const requestForcastedWeather = () => {
+
+        fetch("/api/weather?location=singapore&action=forecast&timesteps=1h", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            }
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                // Handle the response from the server
+                console.log(data);
+            })
+            .catch((error) => {
+                // Handle any errors
+                console.error(error);
+            });
+    };
+
     return (
         <div className="App">
             <header className="App-header">
                 <button onClick={sendDataToServer}>Send Data to Server</button>
+                <button onClick={requestRealtimeWeather}>Retrieve Realtime Weather</button>
+                <button onClick={requestForcastedWeather}>Retrieve Forcasted Weather</button>
                 <CustomAudioContext.Provider value={{ isPlaying, setIsPlaying }}>
                     <DJPlayer audioFiles={audioFiles} />
                     <NewsComponent />
