@@ -3,11 +3,13 @@ import { queue } from './queueController.js';
 
 export async function getNewsData(req, res) {
     try {
+
+        console.log('Fetching news data');
         const location = req.query.location;
         const newsData = await runPythonScript('modules/news_reader.py', [location]);
         const audioFilePaths = JSON.parse(newsData);
 
-        queue.push(audioFilePaths);
+        queue.push(audioFilePaths, 2);
         res.json({ success: true, audioFiles: audioFilePaths });
     } catch (error) {
         console.log(error);

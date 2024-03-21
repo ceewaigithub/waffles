@@ -5,22 +5,26 @@ import { EventEmitter } from 'events';
 // Create an event emitter for the queue
 const queueEmitter = new EventEmitter();
 
-// Create a queue with push method that emits an event
+// Create a priority queue with push method that emits an event
+// Traffic (9) > News (2) > Weather (1) > Music (0)
 const queue = {
     tracks: [],
-    push(track) {
-
+    push(track, priority = 0) {
         if (Array.isArray(track)) {
-            this.tracks.push(...track);
+            track.forEach(t => this.tracks.push({ track: t, priority }));
         } else {
-            this.tracks.push(track);
+            this.tracks.push({ track, priority });
         }
+
+        // Sort the tracks by priority
+        this.tracks.sort((a, b) => a.priority - b.priority);
 
         console.log(queue);
         queueEmitter.emit('update');
     },
     shift() {
-        return this.tracks.shift();
+        // Return the track with the highest priority
+        return this.tracks.pop()?.track;
     },
     get length() {
         return this.tracks.length;
