@@ -24,6 +24,3 @@ def get_weather():
     data = requests.get(url, params=params)
     data_json = data.json()
     return data_json
-
-if __name__ == "__main__":
-    print(get_weather())
