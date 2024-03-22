@@ -33,16 +33,6 @@ News API:
 https://newsapi.org/docs/client-libraries/python
 ```
 
-Music API:
-```
-https://wehaveyettofindonedammit.com
-```
-
-Traffic API:
-```
-https://wehaveyettofindonedammit.com
-```
-
 4. install python packages
 
 ```
@@ -64,23 +54,10 @@ OR batch file on windows:
 docker-compose up --build
 ```
 
-7. ya thats about it lol
-
-Ensure you have Python installed on your machine as the project uses Python scripts for traffic monitoring, music selection, and news reading functionalities.
+7. Ensure you have Python installed on your machine as the project uses Python scripts for traffic monitoring, music selection, and news reading functionalities.
 Your default web browser should open automatically to `http://localhost:3000` where you can interact with the application.
 
-## Contributing
 
-This is how u contribute if you're part of the group:
-1. lol just dc and just push to main just make sure we dont touch the same files can liao 👍.
-
-BUT FOLLOW THESE IF YOURE NOT PART OF THE 5:
-1. Fork the repository.
-2. Create a new branch: `git checkout -b your-branch-name`.
-3. Make your changes and commit them: `git commit -am 'Add some feature'`.
-4. Push to the branch: `git push origin your-branch-name`.
-5. Create a new pull request.
-Please ensure your code adheres to the project's coding standards and includes appropriate tests. Contributions without tests are unlikely to be accepted.
 
 ## Features
 
@@ -98,15 +75,6 @@ The project has the following dependencies:
 
 Please ensure you have these dependencies installed on your machine before running the application.
 
-## Troubleshooting
-
-If you encounter any issues while using the application, try the following troubleshooting steps:
-
-1. Make sure you have all the required dependencies installed and properly configured.
-2. Check if there are any error messages in the console or logs.
-3. Restart the application and try again.
-4. If the issue persists, please open an issue on the project's GitHub repository for further assistance (or uk just msg the group).
-
 ## Roadmap
 
 We have the following plans for future development:
@@ -115,10 +83,3 @@ We have the following plans for future development:
 - Enhanced traffic data interpretation and analysis.
 - Personalized news reading based on user preferences.
 
-## Changelog
-
-- Version 0.0.1 (2024-16-03): Initial creation of React, Nodejs and python modules and components.
-
-## License
-
-LOL WGT license 😎
