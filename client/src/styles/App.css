@@ -1,18 +1,25 @@
 .container {
     margin-top: 100px;
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 400px 1fr;
     align-items: start;
     gap: 20px;
-    flex-wrap: wrap; 
 }
+
+.left-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
 
 .image-container {
     display: flex;
     overflow-x: auto;
     gap: 10px; 
     padding: 10px;
-  }
+}
   
 .image-container img {
 max-height: 200px; 

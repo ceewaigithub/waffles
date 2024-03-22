@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import "./styles/DJPlayer.css";
+import "../styles/DJPlayer.css";
 
 const DJPlayer = () => {
   let context, analyser, dataArray;
@@ -8,7 +8,6 @@ const DJPlayer = () => {
   const circleMediumRef = useRef(null);
   const circleHighRef = useRef(null);
   const plateRef = useRef(null);
-
 
   const togglePlayer = () => {
     if (!context) {
@@ -106,12 +105,12 @@ const DJPlayer = () => {
         loop="loop"
         id="audio"
       ></audio>
-
-      <div className="plane-block">
-        <div className="circle" ref={circleLowRef} id="lowCircle"></div>
-        <div className="circle" ref={circleMediumRef} id="mediumCircle"></div>
-        <div className="circle" ref={circleHighRef} id="highCircle"></div>
-        <div ref={plateRef} id="plate"></div>
+  
+      <div className="djPlayer-plane-block">
+        <div className="djPlayer-circle" ref={circleLowRef} id="lowCircle"></div>
+        <div className="djPlayer-circle" ref={circleMediumRef} id="mediumCircle"></div>
+        <div className="djPlayer-circle" ref={circleHighRef} id="highCircle"></div>
+        <div ref={plateRef} id="djPlayer-plate"></div>
       </div>
     </>
   );

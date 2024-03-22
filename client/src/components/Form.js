@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../styles/Form.css";
 import { PiMapPin, PiPathLight } from "react-icons/pi";
 
-function Form({ onFormSubmit }) { // Add a prop to handle submission results
+function Form({ onFormSubmit }) { 
   const [source, setSource] = useState("");
   const [destination, setDestination] = useState("");
 
@@ -42,6 +42,7 @@ function Form({ onFormSubmit }) { // Add a prop to handle submission results
 
   return (
     <form onSubmit={handleSubmit} className="form">
+      <h2 className="formHeader">Enter your route here</h2>
       <div className="input-group">
         <PiPathLight className="icon" />
         <input

@@ -1,11 +1,11 @@
 import "./styles/App.css";
 import React, { useState, useEffect } from "react";
-import NewsComponent from "./NewsComponent.js"; // Adjust the import path as needed
-import Navbar from "./demo/Navbar.js";
-import DJPlayer from "./DJPlayer.js";
-import Map from "./demo/Map.js";
-import Form from "./demo/Form.js";
-import TrafficDataHistogram from "./demo/TrafficDataHistogram.js";
+import NewsComponent from "./components/NewsComponent.js"; // Adjust the import path as needed
+import Header from "./components/Header.js";
+import DJPlayer from "./components/DJPlayer.js";
+import Map from "./components/Map.js";
+import Form from "./components/Form.js";
+import TrafficDataHistogram from "./components/TrafficDataHistogram.js";
 
 function App() {
   const [formData, setFormData] = useState(null);
@@ -14,7 +14,7 @@ function App() {
   const [audioFiles, setAudioFiles] = useState([]);
   const [imageUrls, setImageUrls] = useState([]);
   const [formSubmitted, setFormSubmitted] = useState(false);
-  
+
   const handleFormSubmit = (newFormData) => {
     setFormSubmitted(true);
     sendDataToServer(newFormData);
@@ -86,17 +86,20 @@ function App() {
 
   // Hardcoded traffic data, replace with actual data from the server
   const trafficData = {
-    "1001": [5, 7, 10],
-    "3521": [1, 2, 3],
+    1001: [5, 7, 10],
+    3521: [1, 2, 3],
   };
 
   return (
     <div className="App">
       <header className="App-header">
-        <Navbar />
+        <Header />
         <div className="container">
-          <div className="left-side form">
-            <Form />
+          <div className="left-side">
+            <div className="form">
+              <Form />
+            </div>
+            <DJPlayer />
           </div>
           <div className="right-side">
             <div className="map-container">
@@ -107,7 +110,6 @@ function App() {
                 <img key={index} src={url} alt={`Traffic ${index}`} />
               ))}
             </div>
-            <DJPlayer />
             <TrafficDataHistogram trafficData={trafficData} />
           </div>
         </div>

@@ -7,7 +7,6 @@
 }
 
 body {
-  background: var(--djPlayer-background-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,7 +19,9 @@ body {
 }
 
 .djPlayer-plane-block {
-  height: 100%;
+  height: auto;
+  width: 100%;
+  max-width: 350px;
   aspect-ratio: 1;
   display: flex;
   align-items: center;
@@ -31,7 +32,7 @@ body {
 #djPlayer-plate {
   width: 75%;
   height: 75%;
-  background: url("https://images.news18.com/ibnlive/uploads/2022/06/indian-tutorials.png");
+  background: url("/public/DJPlayerImage.webp");
   background-size: cover;
   background-position: center;
   border: 5px solid var(--djPlayer-border-color);
@@ -61,25 +62,25 @@ body {
   border-radius: 50%;
   z-index: -1;
   transition: border-radius 0.3s;
-  border: 2px solid var(--border-color);
+  border: 2px solid var(--djPlayer-border-color);
 }
 
-.circle:nth-child(1) {
+#lowCircle {
   height: 70%;
   background-color: var(--djPlayer-low-circle-color);
 }
 
-.circle:nth-child(2) {
+#mediumCircle {
   height: 75%;
   background-color: var(--djPlayer-medium-circle-color);
 }
 
-.circle:nth-child(3) {
+#highCircle {
   height: 82%;
   background-color: var(--djPlayer-high-circle-color);
 }
 
-#plate:hover {
+#djPlayer-plate:hover {
   cursor: pointer;
 }
 

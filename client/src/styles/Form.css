@@ -1,15 +1,20 @@
 .form {
   max-width: 400px;
   padding: 20px;
-  background: #f9f9f9;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-bottom: 20px; 
+  margin-bottom: 60px;
 }
 
+.formHeader {
+  font-size: 24px;
+  font-weight: bold;
+  align-self: center;
+  margin-bottom: 24px;
+}
 
 .input-group {
   display: flex;
@@ -42,12 +47,12 @@ input[type="text"]:focus {
 button {
   background-color: #007bff;
   color: white;
-  padding: 12px; 
+  padding: 12px;
   font-size: 20px;
   font-weight: bold;
   margin-top: 20px;
   border: none;
-  border-radius: 6px; 
+  border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.3s ease;
   align-self: center;
