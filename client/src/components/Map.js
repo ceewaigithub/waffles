@@ -5,6 +5,7 @@ import "../styles/Map.css";
 const Map = () => {
   return (
     <div className="map-container">
+
       <MapContainer center={[1.3521, 103.8198]} zoom={12} style={{ height: '100%', width: '100%' }}>
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

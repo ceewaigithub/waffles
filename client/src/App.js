@@ -1,130 +1,133 @@
 import "./styles/App.css";
 import React, { useState, useEffect } from "react";
-import NewsComponent from "./components/NewsComponent.js"; // Adjust the import path as needed
 import Header from "./components/Header.js";
 import DJPlayer from "./components/DJPlayer.js";
-import Map from "./components/Map.js";
 import Form from "./components/Form.js";
 import TrafficDataHistogram from "./components/TrafficDataHistogram.js";
 
 function App() {
   const [formData, setFormData] = useState(null);
-  const [mapData, setMapData] = useState(null);
-  // const [trafficData, setTrafficData] = useState(null);
-  const [audioFiles, setAudioFiles] = useState([]);
+  const [routeImage, setRouteImage] = useState(null);
   const [imageUrls, setImageUrls] = useState([]);
+  const [trafficData, setTrafficData] = useState(null);
   const [formSubmitted, setFormSubmitted] = useState(false);
 
   const handleFormSubmit = (newFormData) => {
+    setFormData(newFormData);
     setFormSubmitted(true);
     sendDataToServer(newFormData);
-    // fetchImages();
   };
 
-  // Modified to accept formData and update state with the data from the server
-  // const sendDataToServer = (formData) => {
-  //   fetch("/api/data", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(formData),
-  //   })
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       setMapData(data.mapData); // Assume server response has mapData
-  //       setTrafficData(data.trafficData); // Assume server response has trafficData
-  //       // Any other state updates based on server response
-  //     })
-  //     .catch((error) => {
-  //       console.error(error);
-  //     });
-  // };
+  useEffect(() => {
+    if (formSubmitted) {
+      fetchRouteImage();
+      fetchImages();
+      fetchTrafficData();
+    }
+  }, [formSubmitted]);
 
-  // For fetching images from the server
-  // const fetchImages = () => {
-  //   // Replace '/api/images' with the correct endpoint
-  //   fetch('/api/images', {
-  //     // Put any required headers here
-  //   })
-  //   .then(response => response.json())
-  //   .then(data => {
-  //     // Assuming backend returns an array of image URLs
-  //     setImageUrls(data);
-  //   })
-  //   .catch(error => {
-  //     console.error('Error fetching images:', error);
-  //   });
-  // };
-
-  const sendDataToServer = () => {
-    // Code to send data to the server
-    // You can use fetch or axios to make an HTTP request to your Node.js server
-    // Remove this placeholder test function once the server is ready to receive data
-    // Example using fetch:
-    fetch("/api/data", {
+  const sendDataToServer = (formData) => {
+    fetch("/api/formData", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ data: "Hello from the client!" }),
+      body: JSON.stringify(formData),
     })
       .then((response) => response.json())
       .then((data) => {
-        // Handle the response from the server
-        console.log(data);
+        setRouteImage(data.routeImage);
+        setTrafficData(data.histogramData);
       })
       .catch((error) => {
-        // Handle any errors
         console.error(error);
       });
   };
 
-  const handleAudioFilesLoaded = (files) => {
-    setAudioFiles(files);
+  const fetchImages = (formData) => {
+    const queryParams = new URLSearchParams({
+      current_location: formData.from,
+      destination_location: formData.to
+    }).toString();
+  
+    const url = `/api/get-images?${queryParams}`;
+  
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        setImageUrls(data.images); 
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+  
+
+  const fetchRouteImage = () => {
+    const queryParams = new URLSearchParams({
+      current_location: formData.from,
+      destination_location: formData.to
+    }).toString();
+
+    const url = `https://your-api-endpoint.com/get-route-image?${queryParams}`;
+
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        setRouteImage(data.routeImage); 
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
-  // Hardcoded traffic data, replace with actual data from the server
-  const trafficData = {
-    1001: [5, 7, 10],
-    3521: [1, 2, 3],
+  const fetchTrafficData = () => {
+    const queryParams = new URLSearchParams({
+      current_location: formData.from,
+      destination_location: formData.to
+    }).toString();
+
+    const url = `https://your-api-endpoint.com/get-traffic-data?${queryParams}`;
+
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        setTrafficData(data.histogramData);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   return (
     <div className="App">
-      <header className="App-header">
-        <Header />
+      <Header />
+      <h2> Demo App </h2>
+      {!formSubmitted ? (
+        <div className="left-side">
+          <Form onSubmit={handleFormSubmit} />
+        </div>
+      ) : (
         <div className="container">
           <div className="left-side">
-            <div className="form">
-              <Form />
-            </div>
+            <img
+              src={routeImage || "route-image.jpg"}
+              alt="Recommended Route"
+            />
             <DJPlayer />
           </div>
           <div className="right-side">
-            <div className="map-container">
-              <Map />
-            </div>
-            <div className="image-container">
+            <h2>Images of traffic condition</h2>
+            <div className="images-container">
               {imageUrls.map((url, index) => (
                 <img key={index} src={url} alt={`Traffic ${index}`} />
               ))}
             </div>
-            <TrafficDataHistogram trafficData={trafficData} />
+            <h2>Histogram Chart of traffic condition</h2>
+            {trafficData && <TrafficDataHistogram trafficData={trafficData} />}
           </div>
         </div>
-
-        {/* {!formSubmitted && <Form onSubmit={handleFormSubmit} />}
-        {formSubmitted && (
-          <>
-            <Map mapData={mapData} />
-            <DJPlayer audioFiles={audioFiles} />
-            // Placeholder for other components that will render traffic info
-          </>
-        )} */}
-        {/* NewsComponent yet to be fixed */}
-        {/* <NewsComponent onAudioFilesLoaded={handleAudioFilesLoaded} /> */}
-      </header>
+      )}
     </div>
   );
 }
